@@ -37,6 +37,11 @@ public class MainMenu : MonoBehaviour
         _GameManager.LoadOriginal();
     }
 
+    public void LoadSelector() 
+    {
+        SceneManager.LoadScene("LevelSelector");
+    }
+
     private void OnLevelLoaded(Scene scene, LoadSceneMode mode)
     {
         this._GameManager = FindObjectOfType<GameManager>();

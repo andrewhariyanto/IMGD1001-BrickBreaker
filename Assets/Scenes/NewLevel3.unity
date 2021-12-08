@@ -3037,8 +3037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47050f3be6073e43bfa629589e20b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScoreText: {fileID: 0}
-  playerLivesText: {fileID: 0}
+  playerScoreText: {fileID: 1774456535}
+  playerLivesText: {fileID: 1842646993}
 --- !u!4 &1321982177
 Transform:
   m_ObjectHideFlags: 0
