@@ -6,4 +6,4 @@ profile:
 
 linter: jetbrains/qodana-dotnet:2024.3
 
-bootstrap:
+bootstrap: sh ./prepare-qodana.sh
