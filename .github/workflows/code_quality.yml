@@ -18,10 +18,19 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
           fetch-depth: 0  # a full history is required for pull request analysis
+      - name: Set UNITY_DIR environment variable
+        run: echo "UNITY_DIR=${{ github.workspace }}" >> $GITHUB_ENV
+      - name: Sync Unity Solution for Rider
+        run: |
+          chmod +x prepare_qodana.sh
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2024.3
         with:
           pr-mode: false
+          args: --ide,QDNET
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
           QODANA_ENDPOINT: 'https://qodana.cloud'
+      - uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
